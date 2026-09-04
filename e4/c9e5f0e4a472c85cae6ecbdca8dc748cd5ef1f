@@ -1,0 +1,21 @@
+config.el
+  s_006cf2cd298d03::t_37a5d1db0bd2dc 76-118
+packages.el
+  s_006cf2cd298d03::t_f797caf89478c0 54-62
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "e4c9e5f0e4a472c85cae6ecbdca8dc748cd5ef1f",
+  "prompts": {},
+  "sessions": {
+    "s_006cf2cd298d03": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "09065ea8-500d-4030-a466-64905a62c1b0",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Jonathon Goldsmith <jonathon.goldsmith@gmail.com>"
+    }
+  }
+}
