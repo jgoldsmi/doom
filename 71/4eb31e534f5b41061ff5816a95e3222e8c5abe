@@ -1,0 +1,14 @@
+init.el
+  h_c8531ca341f359 104-105,167
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "714eb31e534f5b41061ff5816a95e3222e8c5abe",
+  "prompts": {},
+  "humans": {
+    "h_c8531ca341f359": {
+      "author": "Jonathon Goldsmith <jonathon.goldsmith@gmail.com>"
+    }
+  }
+}
