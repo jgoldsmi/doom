@@ -73,3 +73,46 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;;; consult-gh --- GitHub from the minibuffer -----------------------------------
+;; `consult-gh-transient' carries no upstream autoload cookie, so `:commands'
+;; supplies one. Pressing `SPC g h' loads consult-gh-transient.el, whose
+;; top-level (require 'consult-gh) triggers every block below.
+(use-package! consult-gh-transient
+  :commands consult-gh-transient
+  :init
+  ;; Bind the full sequence: (:prefix ("g" . "git") ...) would rebind SPC g to a
+  ;; *fresh* keymap and wipe Doom's magit/forge bindings.
+  (map! :leader :desc "GitHub (consult-gh)" "g h" #'consult-gh-transient))
+
+(use-package! consult-gh
+  :defer t
+  :config
+  ;; Stock `consult-gh-repo-action' opens the repo in a browser; browse its
+  ;; files in Emacs instead. `C-o' for preview keeps async searches responsive.
+  (setq consult-gh-default-clone-directory "~/src"
+        consult-gh-show-preview t
+        consult-gh-preview-key "C-o"
+        consult-gh-repo-action #'consult-gh--repo-browse-files-action
+        consult-gh-default-interactive-command #'consult-gh-transient)
+  ;; Binds only C-c keys inside consult-gh view buffers, so evil is unaffected.
+  (consult-gh-enable-default-keybindings)
+  (add-to-list 'savehist-additional-variables 'consult-gh--known-orgs-list)
+  (add-to-list 'savehist-additional-variables 'consult-gh--known-repos-list))
+
+(use-package! consult-gh-embark
+  :after consult-gh
+  :config
+  (consult-gh-embark-mode +1))
+
+;; This block is what makes the first `SPC g h' pull in forge/ghub/magit.
+(use-package! consult-gh-forge
+  :after consult-gh
+  :config
+  (consult-gh-forge-mode +1)
+  (setq consult-gh-forge-timeout-seconds 20))
+
+(use-package! consult-gh-nerd-icons
+  :after consult-gh
+  :config
+  (consult-gh-nerd-icons-mode +1))

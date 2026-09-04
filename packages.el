@@ -51,3 +51,12 @@
 ;; (unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
+
+;; consult-gh: GitHub CLI interface via consult.
+;; Installed from git rather than MELPA because only the core package is on
+;; MELPA; the embark/forge/nerd-icons/transient modules live in this same repo.
+;; consult-gh-with-pr-review.el is excluded because it `require's pr-review at
+;; top level, which we don't install.
+(package! consult-gh
+  :recipe (:host github :repo "armindarvish/consult-gh"
+           :files (:defaults (:exclude "consult-gh-with-pr-review.el"))))
