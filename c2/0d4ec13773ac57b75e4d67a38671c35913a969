@@ -1,0 +1,19 @@
+config.el
+  s_006cf2cd298d03::t_ac478bd964a983 44-50
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "c20d4ec13773ac57b75e4d67a38671c35913a969",
+  "prompts": {},
+  "sessions": {
+    "s_006cf2cd298d03": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "09065ea8-500d-4030-a466-64905a62c1b0",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Jonathon Goldsmith <jonathon.goldsmith@gmail.com>"
+    }
+  }
+}
