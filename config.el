@@ -41,8 +41,13 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
-
-
+(setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$"))
+(add-hook! 'org-mode-hook #'turn-on-auto-fill)
+(setq org-roam-dailies-capture-templates
+      '((d "default" entry
+         "* %?"
+         :target (file+head "%<%Y-%m-%d>.org"
+                            "#+title: %<%Y-%m-%d>\n\n* Morning Setup\n\n* Notes\n\n* Conclusion\n\n* TODOs"))))
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `with-eval-after-load' block, otherwise Doom's defaults may override your
 ;; settings. E.g.
